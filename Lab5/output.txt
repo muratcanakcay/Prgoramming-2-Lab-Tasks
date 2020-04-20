@@ -1,0 +1,90 @@
+
+***** Part I *****
+
+19 Mar 2019, Tue
+01 Apr 2019, Mon
+01 Jan 1901, Tue
+31 Dec 2099, Thu
+01 Jan 0001, ***
+01 Jan 0001, ***
+01 Jan 0001, ***
+01 Jan 0001, ***
+01 Jan 0001, ***
+
+***** Part II *****
+
+Enter year: 1900
+Enter month: 3
+Enter day: 19
+Wrong date
+
+Enter year: 2019
+Enter month: 3
+Enter day: 19
+19 Mar 2019, Tue
+
+***** Part III *****
+
+01 Jan 1901, Tue
+01 Feb 1901, Fri
+01 Jan 1902, Wed
+16 Feb 1903, Mon
+01 Jan 0001, ***
+01 Jan 0001, ***
+01 Jan 0001, ***
+1
+32
+366
+777
+-1
+-1
+-1
+
+***** Part IV *****
+
+01 Jan 1901, Tue
+01 Apr 1901, Mon
+01 Jan 0001, ***
+01 Jan 0001, ***
+
+90
+-90
+-2147483648
+-2147483648
+
+19 Mar 2019, Tue
+19 Mar 2019, Tue
+20 Mar 2019, Wed
+19 Mar 2019, Tue
+31 Dec 2099, Thu
+01 Jan 0001, ***
+01 Jan 0001, ***
+01 Jan 0001, ***
+19 Mar 2019, Tue
+
+19 Mar 2019, Tue
+19 Mar 2019, Tue
+18 Mar 2019, Mon
+19 Mar 2019, Tue
+01 Jan 1901, Tue
+01 Jan 0001, ***
+01 Jan 0001, ***
+01 Jan 0001, ***
+19 Mar 2019, Tue
+
+***** Part V *****
+
+29 Feb 2020, Sat
+29 Feb 2020, Sat
+29 Feb 2020, Sat
+01 Mar 2020, Sun
+02 Mar 2020, Mon
+
+***** Part VI *****
+
+Tue
+Tue
+***
+01 Jan 1901, Tue
+19 Mar 2019, Tue
+01 Jan 0001, ***
