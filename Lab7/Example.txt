@@ -1,0 +1,107 @@
+
+ --------------------- STAGE_1 (2Pts) ---------------------
+
+Oryginal StudentCards
+
+Free Student Cards (No 1): 0 (Not Valid)
+Free Student Cards (No 2): 1 (Valid)
+
+StudentCards After Making A Copy
+
+Free Student Cards (No 1): 0 (Not Valid)
+Free Student Cards (No 2): 1 (Not Valid)
+
+Copy Student Cards (No 1): 2 (Not Valid)
+Copy Student Cards (No 2): 3 (Valid)
+
+ --------------------- STAGE_2 (1Pts) ---------------------
+
+Library No 1:
+Book No 0: (4) La Catedral del Mar - Ildefonso Falcones
+Book No 1: (2) Tales of the Alhambra - Washington Irving
+Book No 2: (1) Quantum Physics for Beginners - Jason Stephenson
+Book No 3: (2) Death by Black Hole - Neil deGrasse Tyson
+Book No 4: (1) English 4 IT - Beata Blaszczyk
+Book No 5: (4) The Lord of the Rings - J.R.R. Tolkien
+Book No 6: (6) A Song of Ice and Fire - George R.R. Martin
+Book No 7: (2) Lord Jim - Joseph Conrad
+Book No 8: (4) The Adventures of Sherlock Holmes - Arthur Conan Doyle
+Book No 9: (3) The Witcher - Andrzej Sapkowski
+
+Library No 2:
+Book No 0: (4) English 4 IT - Beata Blaszczyk
+Book No 1: (2) The Lord of the Rings - J.R.R. Tolkien
+Book No 2: (1) Lord Jim - Joseph Conrad
+Book No 3: (2) The Adventures of Sherlock Holmes - Arthur Conan Doyle
+Book No 4: (1) Eye of the Needle - Ken Follett
+Book No 5: (4) The Pillars of the Earth - Ken Follett
+Book No 6: (6) World Without End - Ken Follett
+Book No 7: (2) A Column of Fire - Ken Follett
+Book No 8: (4) Doctors - Erich Segal
+Book No 9: (3) The Witcher - Andrzej Sapkowski
+
+
+ --------------------- STAGE_3 (3Pts) ---------------------
+
+Gordon Jack 0 (Valid)
+Sartman Albert 1 (Valid)
+Monck John 2 (Valid)
+Benckin Broklyn 3 (Valid)
+Lanovic Lynk 4 (Valid)
+Anna STOSIO 5 (Valid)
+Wioletta JASINSKA 6 (Valid)
+Radoslaw KAMECKI 7 (Valid)
+Zenon ZIOMECKI 8 (Valid)
+Adam KOWALSKI 9 (Valid)
+Jan DZBAN 10 (Not Valid)
+Gabriela ZEBRACKA 11 (Not Valid)
+Joanna NOWAK 12 (Not Valid)
+Jaroslaw PLUTA 13 (Not Valid)
+
+ --------------------- STAGE_4 (1.5Pts) ---------------------
+
+Gordon Jack 0 (Valid)
+        La Catedral del Mar - Ildefonso Falcones
+        La Catedral del Mar - Ildefonso Falcones
+        La Catedral del Mar - Ildefonso Falcones
+Sartman Albert 1 (Valid)
+Monck John 2 (Valid)
+        Quantum Physics for Beginners - Jason Stephenson
+Benckin Broklyn 3 (Valid)
+Lanovic Lynk 4 (Valid)
+        La Catedral del Mar - Ildefonso Falcones
+Anna STOSIO 5 (Valid)
+Wioletta JASINSKA 6 (Valid)
+Radoslaw KAMECKI 7 (Valid)
+Zenon ZIOMECKI 8 (Valid)
+Adam KOWALSKI 9 (Valid)
+Jan DZBAN 10 (Not Valid)
+Gabriela ZEBRACKA 11 (Not Valid)
+Joanna NOWAK 12 (Not Valid)
+Jaroslaw PLUTA 13 (Not Valid)
+
+ --------------------- STAGE_5 (0.5Pts) ---------------------
+
+Gordon Jack 14 (Valid)
+        La Catedral del Mar - Ildefonso Falcones
+        La Catedral del Mar - Ildefonso Falcones
+        La Catedral del Mar - Ildefonso Falcones
+Sartman Albert 1 (Valid)
+        Lord Jim - Joseph Conrad
+Monck John 15 (Valid)
+        Quantum Physics for Beginners - Jason Stephenson
+Benckin Broklyn 3 (Valid)
+Lanovic Lynk 4 (Valid)
+        La Catedral del Mar - Ildefonso Falcones
+Anna STOSIO 16 (Valid)
+Wioletta JASINSKA 6 (Valid)
+Radoslaw KAMECKI 7 (Valid)
+        The Pillars of the Earth - Ken Follett
+        The Pillars of the Earth - Ken Follett
+        The Pillars of the Earth - Ken Follett
+Zenon ZIOMECKI 17 (Valid)
+Adam KOWALSKI 18 (Valid)
+Jan DZBAN 10 (Not Valid)
+Gabriela ZEBRACKA 11 (Not Valid)
+Joanna NOWAK 12 (Not Valid)
+Jaroslaw PLUTA 13 (Not Valid)
