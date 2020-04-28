@@ -5,13 +5,13 @@
 using namespace std;
 
 List::List() : head(nullptr), tail(nullptr) {}
-List::List(const List& other) // copy c-tor
+List::List(const List& other) 
 {
 	head = tail = nullptr;
 	for (List::Elem* ptr = other.head; ptr; ptr = ptr->next)
 		PushBack(ptr->val);
 }
-List::~List()
+List::~List() 
 {
 	clean();
 }
@@ -51,7 +51,7 @@ void List::PushFront(int v)
 }
 void List::PushBack(int v)
 {
-    if (tail)
+    if ( tail )
         tail = tail->next = new Elem(v);
     else
         tail = head = new Elem(v);
@@ -76,18 +76,18 @@ List List::SubList(int start, int len)
 {
 	List temp;
 	if (start < 0 || len < 0) return temp;
-
-	Elem* current = head;
-
+	
+	Elem* current = head; 
+	
 	while (start-- && current)  // move to starting element
-		current = current->next;
+		current = current->next; 
 
-	while (len-- && current) // start sublisting
+	while (len-- && current) // start sublisting 
 	{
-		temp.PushBack(current->val);
+		temp.PushBack(current->val); 
 		current = current->next;
 	}
-
+	
 	return temp;
 }
 void List::Reverse()
@@ -105,7 +105,7 @@ void List::Reverse()
 int List::GetMax()
 {
 	if (!head) return 0; // empty list
-
+	
 	int max = Max();
 	Elem* current = head;
 
@@ -125,7 +125,7 @@ int List::GetMax()
 		}
 		else // found max
 		{
-			Elem* temp = current->next;
+			Elem* temp = current->next; 
 			if (tail == current->next) // if it was tail reassign tail
 				tail = (current->next->next ? current->next->next : current);
 			current->next = current->next->next;
@@ -139,10 +139,10 @@ int List::Remove(int v)
 	if (!head) return 0;
 
 	int count = 0;
-
+	
 	while (head->val == v) // delete values at front
 	{
-		Elem* current = head;
+		Elem* current = head; 
 		if (head == tail) head = tail = nullptr; // if deleting last element in list
 		else head = head->next;
 		delete current;
