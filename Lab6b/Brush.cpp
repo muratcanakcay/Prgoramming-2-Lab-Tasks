@@ -1,9 +1,10 @@
 #include "Brush.h"
 
 //---STAGE 2: implement constructor--
-//---operator<< and paint method-----
 
 Brush::Brush(string _name, Picture _pic) : picture(_pic), name(_name) {}
+
+//---operator<< and paint method-----
 
 ostream& operator<<(ostream& out, Brush& b)
 {
@@ -16,6 +17,7 @@ void Brush::paint()
 	for (int i = 0; i < picture.getHeight(); i++)
 		cout << picture[i] << endl;
 }
+
 //-----------------------------------
 
 
@@ -23,7 +25,7 @@ void Brush::paint()
 
 void Brush::setPicture(Picture p)
 {
-	this->picture = p;
+	picture = p;
 }
 
 //-----------------------------------

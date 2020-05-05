@@ -1,7 +1,6 @@
 #include "Picture.h"
 
 //---STAGE 1: implement constructors------
-//---destructor and necessary operators---
 
 Picture::Picture(int _h, string* _signs, string _desc) : height(_h), description(_desc), signs(nullptr)
 {
@@ -13,6 +12,15 @@ Picture::Picture(const Picture& p) : height(p.getHeight()), description(p.descri
 	init(height, p.signs);
 }
 
+void Picture::init(int h, string* s)
+{
+	signs = new string[height];
+	for (int i = 0; i < height; i++)
+		signs[i] = s[i];
+}
+
+//---destructor and necessary operators---
+
 Picture::~Picture()
 {
 	if (signs) delete[] signs;
@@ -20,18 +28,11 @@ Picture::~Picture()
 
 Picture& Picture::operator=(const Picture& p)
 {
-	if (this->signs) delete[] this->signs;
-	this->height = p.height;
-	this->description = p.description;
-	this->init(height, p.signs);
+	if (signs) delete[] signs;
+	height = p.height;
+	description = p.description;
+	init(height, p.signs);
 	return *this;
-}
-
-void Picture::init(int h, string* st)
-{
-	signs = new string[h];
-	for (int i = 0; i < h; i++)
-		signs[i] = st[i];
 }
 
 ostream& operator<<(ostream& out, Picture& p)
@@ -41,14 +42,13 @@ ostream& operator<<(ostream& out, Picture& p)
 	return out;
 }
 
-
 //----------------------------------------
 
 //---STAGE 2: implement operator[]---
 
 string Picture::operator[](int i) const
 {
-	return this->signs[i];
+	return signs[i];
 }
 
 //-----------------------------------

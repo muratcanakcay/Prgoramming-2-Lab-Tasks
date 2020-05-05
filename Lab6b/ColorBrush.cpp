@@ -1,9 +1,11 @@
 #include "ColorBrush.h"
 
 //---STAGE 3: implement constructor--
-//---getColor and paint methods------
 
 ColorBrush::ColorBrush(string _name, short _color, Picture _pic) : Brush(_name, _pic), color(_color) {};
+
+//---getColor and paint methods------
+
 short ColorBrush::getColor() const
 {
 	return color;
@@ -12,13 +14,11 @@ short ColorBrush::getColor() const
 void ColorBrush::paint()
 {
 	useColor(getColor());
-	(*this).Brush::paint();
+	Brush::paint();
 	resetColor();
 }
 
-
 //-----------------------------------
-
 
 //---already implemented---
 void ColorBrush::useColor(short clr)
