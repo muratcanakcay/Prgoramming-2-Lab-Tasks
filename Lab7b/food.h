@@ -22,7 +22,7 @@ public:
 	Grain(float amount) : amount(amount) {};
 	float GetAmount() {return amount;};
 	void EatFood(float howMuch) { amount -= howMuch; };
-	virtual Grain* clone() const { return new Grain(*this); };
+	virtual Grain* clone() const override { return new Grain(*this); };
 };
 
 class Fish : public Food
@@ -33,5 +33,5 @@ public:
 	Fish(int amount) : amount(amount) {};
 	int GetAmount() { return amount; } ;
 	void EatFood(int howMuch) { amount -= howMuch; };
-	virtual Fish* clone() const { return new Fish(*this); };
+	virtual Fish* clone() const override { return new Fish(*this); };
 };

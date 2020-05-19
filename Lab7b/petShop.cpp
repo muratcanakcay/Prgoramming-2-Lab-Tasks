@@ -24,6 +24,7 @@ PetShop::PetShop(Food* food[2]) : petCount(0)
 	foodAmount[1] = f->clone();
 
 }
+
 PetShop::~PetShop()
 {
 	if (pets)
@@ -38,11 +39,13 @@ void PetShop::AddPet(Pet* pet)
 {
 	if (petCount <= MAX_PET_COUNT)
 	{
-		/*Hamster* h = nullptr;
+		Hamster* h = nullptr;
 		Pelican* p = nullptr;
 		Cat* c = nullptr;
 
-		if (h = dynamic_cast<Hamster*>(pet)) pets[petCount] = h;*/
+		//if (h = dynamic_cast<Hamster*>(pet)) pets[petCount] = h;
+		//if (p = dynamic_cast<Pelican*>(pet)) pets[petCount] = p;
+		//if (c = dynamic_cast<Cat*>(pet)) pets[petCount] = c;
 
 		pets[petCount] = pet;
 		petCount++;
@@ -68,15 +71,11 @@ void PetShop::FeedPets()
 		pets[i]->Feed(foodAmount);
 }
 
-
-
-
 //---PART 4 - implement here
 //---feeding pelicans after others
 
 void PetShop::FeedPelicansLast()
 {
-	
 	Pelican* p = nullptr;
 
 	for (int i = 0; i < petCount; i++)
@@ -84,8 +83,6 @@ void PetShop::FeedPelicansLast()
 
 	for (int i = 0; i < petCount; i++)
 		if (p = dynamic_cast<Pelican*>(pets[i])) pets[i]->Feed(foodAmount);
-
-
 }
 
 //---PART 5 - implement here
@@ -96,57 +93,93 @@ void PetShop::RemovePet(int index)
 	petCount--;
 	delete pets[index];
 	for (int i = index; i < petCount; i++)
-	{
 		pets[i] = pets[i + 1];
-	}
 }
-
 
 void PetShop::CureCats()
 {
-	int cured = 0;
-	int sick = 0;
-	int hamsters = 0;	
+	// old implementation
+	
+	//int toCure = 0;
+	//int sick = 0;
+	//int hamsters = 0;	
 
+	//for (int i = 0; i < petCount; i++)
+	//{
+	//	Cat* c = nullptr;
+	//	if ((c = dynamic_cast<Cat*>(pets[i])) && pets[i]->IsSick())
+	//		sick++; // store no of sick cats
+	//	Hamster* h = nullptr;
+	//	if ((h = dynamic_cast<Hamster*>(pets[i])))
+	//		hamsters++; // store no of hamsters
+	//}
 
-	for (int i = 0; i < petCount; i++)
+	//while (sick && hamsters) // feed the cats - remove the hamsters
+	//{
+	//	for (int i = 0; i < petCount; i++)
+	//	{
+	//		Hamster* h = nullptr;
+	//	
+	//		if ((h = dynamic_cast<Hamster*>(pets[i])))
+	//		{
+	//			RemovePet(i); 
+	//			hamsters--;
+	//			sick--;
+	//			toCure++;
+	//			break;
+	//		}
+	//	}
+	//}
+
+	//for (int i = 0; i < petCount; i++) // cure the cats
+	//{
+	//	Cat* c = nullptr;
+	//	if (toCure && (c = dynamic_cast<Cat*>(pets[i])) && pets[i]->IsSick())
+	//	{
+	//		pets[i]->Cure();
+	//		toCure--;
+	//	}
+	//}
+
+	// new implementation
+
+	bool hamsterExists, sickCatExists;
+	int c_idx, h_idx, idx;
+	c_idx = h_idx = idx = 0;
+	
+	do
 	{
-		Cat* c = nullptr;
-		if ((c = dynamic_cast<Cat*>(pets[i])) && pets[i]->IsSick())
-			sick++; // store no of sick cats
+		hamsterExists = sickCatExists = false;
 		Hamster* h = nullptr;
-		if ((h = dynamic_cast<Hamster*>(pets[i])))
-			hamsters++; // store no of hamsters
-	}
-
-	while (sick && hamsters)
-	{
-		for (int i = 0; i < petCount; i++)
-		{
-			Hamster* h = nullptr;
+		Cat* c = nullptr; 
 		
-			if ((h = dynamic_cast<Hamster*>(pets[i])))
+		for (int i = idx; i < petCount; i++)
+		{
+			// find sick cat 
+			if (!sickCatExists && (c = dynamic_cast<Cat*>(pets[i])) && pets[i]->IsSick())
 			{
-				RemovePet(i); // feed the cats
-				hamsters--;
-				sick--;
-				cured++;
+				c_idx = i;
+				sickCatExists = true;				
+			}
+
+			// find hamster
+			if (!hamsterExists && (h = dynamic_cast<Hamster*>(pets[i]))) 
+			{
+				h_idx = i;
+				hamsterExists = true;
+			}
+
+			// if both exist cure cat and remove hamster
+			// restart iteration from lower index
+			if (sickCatExists && hamsterExists)
+			{
+				c->Cure();
+				RemovePet(h_idx);
+				idx = (c_idx < h_idx) ? c_idx : h_idx; 
 				break;
 			}
-
 		}
-	}
 
-	for (int i = 0; i < petCount; i++) // cure the cats
-	{
-		Cat* c = nullptr;
-		if (cured)
-		{
-			if ((c = dynamic_cast<Cat*>(pets[i])) && pets[i]->IsSick())
-			{
-				pets[i]->Cure();
-				cured--;
-			}
-		}
-	}
+	// if both a sick cat and a hamster do not exist, exit while loop
+	} while (sickCatExists && hamsterExists);
 }

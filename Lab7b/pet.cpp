@@ -16,12 +16,12 @@ Hamster::Hamster(string _name, int _weight, float _hungerGrain) : Pet(_name, _we
 
 void Hamster::Feed(Food* food[2])
 {
-	Grain* f = nullptr;
-	if (!(f = dynamic_cast<Grain*>(food[0])))
-		f = dynamic_cast<Grain*>(food[1]);
+	Grain* g = nullptr;
+	if (!(g = dynamic_cast<Grain*>(food[0]))) 
+		g = dynamic_cast<Grain*>(food[1]);
 
-	if (!IsSick() && f->GetAmount() >= hungerGrain)
-		f->EatFood(hungerGrain);
+	if (!IsSick() && g->GetAmount() >= hungerGrain)
+		g->EatFood(hungerGrain);
 	else isSick = true;
 }
 
@@ -75,10 +75,7 @@ void Cat::Feed(Food* food[2])
 		f = dynamic_cast<Fish*>(food[1]);
 
 	if (!IsSick() && f->GetAmount() >= hunger)
-	{
-		
 		f->EatFood(hunger);
-	}
 	else isSick = true;
 }
 
