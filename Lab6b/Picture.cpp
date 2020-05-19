@@ -38,7 +38,7 @@ Picture& Picture::operator=(const Picture& p)
 ostream& operator<<(ostream& out, Picture& p)
 {
 	out << "Picture: " << p.description << endl;
-	out << "Size: " << p.getWidth() << "X" << p.getHeight() << endl;
+	out << "Size: " << p.getWidth() << "x" << p.getHeight() << endl;
 	return out;
 }
 

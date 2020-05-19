@@ -25,7 +25,7 @@ void ColorPatternBrush::paint()
 		for (int j = 0; j < width; j++)
 		{
 			if (count++ == pattern_length) count = 1;
-			useColor((count <= colorLength) ? getColor() : getAlternateColor());
+			useColor(count <= colorLength ? getColor() : getAlternateColor());
 			cout << picture[i][j];
 			resetColor();
 		}
