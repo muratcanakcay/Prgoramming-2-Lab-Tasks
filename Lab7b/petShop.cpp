@@ -143,35 +143,35 @@ void PetShop::CureCats()
 
 	// new implementation
 
-	bool hamsterExists, sickCatExists;
+	bool hamsterFound, sickCatFound;
 	int c_idx, h_idx, idx;
 	c_idx = h_idx = idx = 0;
 	
 	do
 	{
-		hamsterExists = sickCatExists = false;
+		hamsterFound = sickCatFound = false;
 		Hamster* h = nullptr;
 		Cat* c = nullptr; 
 		
 		for (int i = idx; i < petCount; i++)
 		{
 			// find sick cat 
-			if (!sickCatExists && (c = dynamic_cast<Cat*>(pets[i])) && pets[i]->IsSick())
+			if (!sickCatFound && (c = dynamic_cast<Cat*>(pets[i])) && pets[i]->IsSick())
 			{
 				c_idx = i;
-				sickCatExists = true;				
+				sickCatFound = true;				
 			}
 
 			// find hamster
-			if (!hamsterExists && (h = dynamic_cast<Hamster*>(pets[i]))) 
+			if (!hamsterFound && (h = dynamic_cast<Hamster*>(pets[i]))) 
 			{
 				h_idx = i;
-				hamsterExists = true;
+				hamsterFound = true;
 			}
 
 			// if both exist cure cat and remove hamster
 			// restart iteration from lower index
-			if (sickCatExists && hamsterExists)
+			if (sickCatFound && hamsterFound)
 			{
 				c->Cure();
 				RemovePet(h_idx);
@@ -180,6 +180,6 @@ void PetShop::CureCats()
 			}
 		}
 
-	// if both a sick cat and a hamster do not exist, exit while loop
-	} while (sickCatExists && hamsterExists);
+	// if sick cat or a hamster does not exist, exit while loop
+	} while (!sickCatFound || !hamsterFound);
 }
