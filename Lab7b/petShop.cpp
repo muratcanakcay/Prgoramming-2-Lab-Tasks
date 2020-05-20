@@ -30,26 +30,15 @@ PetShop::~PetShop()
 	if (pets)
 		for (int i = 0; i < petCount; i++)
 			delete pets[i];
-	delete foodAmount[0];
-	delete foodAmount[1];
+	if (foodAmount[0]) delete foodAmount[0];
+	if (foodAmount[1]) delete foodAmount[1];
 	delete foodAmount;
 }
 
 void PetShop::AddPet(Pet* pet)
 {
 	if (petCount < MAX_PET_COUNT)
-	{
-		Hamster* h = nullptr;
-		Pelican* p = nullptr;
-		Cat* c = nullptr;
-
-		//if (h = dynamic_cast<Hamster*>(pet)) pets[petCount] = h;
-		//if (p = dynamic_cast<Pelican*>(pet)) pets[petCount] = p;
-		//if (c = dynamic_cast<Cat*>(pet)) pets[petCount] = c;
-
-		pets[petCount] = pet;
-		petCount++;
-	}
+		pets[petCount++] = pet;	
 }
 
 ostream& operator<<(ostream& out, const PetShop& shop)
@@ -92,7 +81,7 @@ void PetShop::RemovePet(int index)
 {
 	petCount--;
 	delete pets[index];
-	for (int i = index; i < petCount - 1; i++)
+	for (int i = index; i < petCount; i++)
 		pets[i] = pets[i + 1];
 	pets[petCount] = nullptr;
 }
@@ -137,5 +126,5 @@ void PetShop::CureCats()
 		}
 
 	// if sick cat or a hamster does not exist, exit while loop
-	} while (!sickCatFound || !hamsterFound);
+	} while (sickCatFound && hamsterFound);
 }
