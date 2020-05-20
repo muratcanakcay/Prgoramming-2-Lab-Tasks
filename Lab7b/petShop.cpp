@@ -37,7 +37,7 @@ PetShop::~PetShop()
 
 void PetShop::AddPet(Pet* pet)
 {
-	if (petCount <= MAX_PET_COUNT)
+	if (petCount < MAX_PET_COUNT)
 	{
 		Hamster* h = nullptr;
 		Pelican* p = nullptr;
@@ -92,57 +92,13 @@ void PetShop::RemovePet(int index)
 {
 	petCount--;
 	delete pets[index];
-	for (int i = index; i < petCount; i++)
+	for (int i = index; i < petCount - 1; i++)
 		pets[i] = pets[i + 1];
+	pets[petCount] = nullptr;
 }
 
 void PetShop::CureCats()
 {
-	// old implementation
-	
-	//int toCure = 0;
-	//int sick = 0;
-	//int hamsters = 0;	
-
-	//for (int i = 0; i < petCount; i++)
-	//{
-	//	Cat* c = nullptr;
-	//	if ((c = dynamic_cast<Cat*>(pets[i])) && pets[i]->IsSick())
-	//		sick++; // store no of sick cats
-	//	Hamster* h = nullptr;
-	//	if ((h = dynamic_cast<Hamster*>(pets[i])))
-	//		hamsters++; // store no of hamsters
-	//}
-
-	//while (sick && hamsters) // feed the cats - remove the hamsters
-	//{
-	//	for (int i = 0; i < petCount; i++)
-	//	{
-	//		Hamster* h = nullptr;
-	//	
-	//		if ((h = dynamic_cast<Hamster*>(pets[i])))
-	//		{
-	//			RemovePet(i); 
-	//			hamsters--;
-	//			sick--;
-	//			toCure++;
-	//			break;
-	//		}
-	//	}
-	//}
-
-	//for (int i = 0; i < petCount; i++) // cure the cats
-	//{
-	//	Cat* c = nullptr;
-	//	if (toCure && (c = dynamic_cast<Cat*>(pets[i])) && pets[i]->IsSick())
-	//	{
-	//		pets[i]->Cure();
-	//		toCure--;
-	//	}
-	//}
-
-	// new implementation
-
 	bool hamsterFound, sickCatFound;
 	int c_idx, h_idx, idx;
 	c_idx = h_idx = idx = 0;
