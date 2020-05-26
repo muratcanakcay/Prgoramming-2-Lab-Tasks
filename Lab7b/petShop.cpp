@@ -49,7 +49,7 @@ ostream& operator<<(ostream& out, const PetShop& shop)
 	out << " Fish: " << dynamic_cast<Fish*>(shop.foodAmount[1])->GetAmount() << endl << endl;
 	
 	for (int i = 0; i < shop.petCount; i++)
-		cout << *(shop.pets[i]) << endl;
+		out << *(shop.pets[i]) << endl;
 
 	return out;
 }
